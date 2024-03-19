@@ -1,0 +1,45 @@
+.form__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__login{
+    display: block;
+    background: #E3E3E3;
+    border-radius: 40px;
+    width: 60%;
+    margin:40px
+}
+
+.form__login label{
+    margin: 10px;
+}
+.form__login input
+{
+    width: 90%;
+}
+.form__login-title{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form__login button {
+    display: block;
+    margin: 20px auto;
+    background-color: #FFD700;
+    transition: background-color 0.3s ease;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.form__login button:hover {
+    border: solid black 2px;
+
+}
+
+
+
+
+

@@ -1,0 +1,102 @@
+/* Style de la page coup de coeur d'un utilisateur */
+
+.block {
+    background: #E3E3E3;
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 70%;
+}
+
+.arrow-backProfil{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.arrow-backProfil a i{
+    color: black;
+    font-size: 40px;
+    border-radius: 50%;
+}
+
+.arrow-backProfil a i:hover{
+    background-color: #FFD700
+}
+
+.profil__like h1{
+    text-align: center;
+}
+
+.profil__like-recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.profil__like-recipes h2{
+    text-decoration: none;
+    text-align: center;
+}
+
+
+.profil__recipe-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 6px 10px 10px gray;
+    margin: 10px;
+    width: 20%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    min-height: 400px;
+}
+
+.profil__recipe-card img {
+    display: block;
+    margin: 10px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    width: 90%;
+}
+
+.profil__recipe-card a {
+    color: black;
+    position: relative;
+    text-decoration: none;
+}
+.profil__recipe-card .fa-trash:hover{
+    transform: scale(1.2);
+    color: red;
+    transition: ease;
+    font-weight: bold;
+}
+
+.profil__recipe-card:hover {
+    transform: scale(1.1);
+}
+
+
+.profil__recipe-card:hover .profil__recipe-name {
+    text-decoration: underline;
+    color: #ffd700;
+}
+
+@media(max-width: 856px){
+    .profil__like-recipes img {
+        width: 120px;
+        height: 120px;
+    }
+    .profil__recipe-card {
+        min-height: 250px;
+        min-width: 150px
+    }
+}

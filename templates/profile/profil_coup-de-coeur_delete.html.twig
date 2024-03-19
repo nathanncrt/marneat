@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %} Suppression du coup de coeur {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/profil-form.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="block">
+        <div class="stock__delete-title">
+            <h3><i class="fa-sharp fa-light fa-triangle-exclamation"></i> Vous êtes sur le point de supprimer {{ recipe.nomRecette }} de vos coups de coeur<i class="fa-sharp fa-light fa-triangle-exclamation"></i></h3>
+        </div>
+
+        <div class="stock__delete-button">
+            {{ form_start(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

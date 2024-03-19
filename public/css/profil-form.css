@@ -1,0 +1,86 @@
+/* Style des pages de création / édition / suppression du stock d'un utilisateur */
+
+.block{
+    background: #E3E3E3;
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 50%;
+}
+
+.arrow-backProfil{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.arrow-backProfil a i{
+    color: black;
+    font-size: 40px;
+    border-radius: 50%;
+}
+
+.arrow-backProfil a i:hover{
+    background-color: #FFD700
+}
+/* Formulaire de création*/
+.stock__create-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btn.btn-outline-success {
+    width: 220px;
+    margin-top: 10px;
+}
+.stock__create-title{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/* Formulaire d'édition */
+.stock__update-title{
+    text-align: center;
+}
+
+.stock__update-button {
+    border: gray solid 2px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.stock__update-button:hover {
+    background-color: royalblue;
+}
+
+/* Formulaire de suppression*/
+.stock__delete-title{
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.stock__delete-button form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.stock__delete-button form button{
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+
+}
+

@@ -1,0 +1,212 @@
+[
+  {
+    "libSousCategorieRecette": "apéritif dînatoire",
+    "categorieRecette": {
+      "libCatRecette": "Apéritifs"
+    }
+  },
+  {
+    "libSousCategorieRecette": "apéro léger",
+    "categorieRecette": {
+      "libCatRecette": "Apéritifs"
+    }
+  },
+  {
+    "libSousCategorieRecette": "bouchée ou amuse-bouche",
+    "categorieRecette": {
+      "libCatRecette": "Apéritifs"
+    }
+  },
+  {
+    "libSousCategorieRecette": "cocktail apéritif",
+    "categorieRecette": {
+      "libCatRecette": "Apéritifs"
+    }
+  },
+  {
+    "libSousCategorieRecette": "apéro pas cher",
+    "categorieRecette": {
+      "libCatRecette": "Apéritifs"
+    }
+  },
+  {
+    "libSousCategorieRecette": "apéritif de Noël",
+    "categorieRecette": {
+      "libCatRecette": "Apéritifs"
+    }
+  },
+  {
+    "libSousCategorieRecette": "entrée froide",
+    "categorieRecette": {
+      "libCatRecette": "Entrées"
+    }
+  },
+  {
+    "libSousCategorieRecette": "entrée chaude",
+    "categorieRecette": {
+      "libCatRecette": "Entrées"
+    }
+  },
+  {
+    "libSousCategorieRecette": "bouchées et raviolis",
+    "categorieRecette": {
+      "libCatRecette": "Entrées"
+    }
+  },
+  {
+    "libSousCategorieRecette": "feuilleté, brick",
+    "categorieRecette": {
+      "libCatRecette": "Entrées"
+    }
+  },
+  {
+    "libSousCategorieRecette": "entrée facile",
+    "categorieRecette": {
+      "libCatRecette": "Entrées"
+    }
+  },
+  {
+    "libSousCategorieRecette": "entrée rapide",
+    "categorieRecette": {
+      "libCatRecette": "Entrées"
+    }
+  },
+  {
+    "libSousCategorieRecette": "entrée légère",
+    "categorieRecette": {
+      "libCatRecette": "Entrées"
+    }
+  },
+  {
+    "libSousCategorieRecette": "entrée de Noël",
+    "categorieRecette": {
+      "libCatRecette": "Entrées"
+    }
+  },
+  {
+    "libSousCategorieRecette": "viande",
+    "categorieRecette": {
+      "libCatRecette": "Plats"
+    }
+  },
+  {
+    "libSousCategorieRecette": "poisson",
+    "categorieRecette": {
+      "libCatRecette": "Plats"
+    }
+  },
+  {
+    "libSousCategorieRecette": "fruits de mer",
+    "categorieRecette": {
+      "libCatRecette": "Plats"
+    }
+  },
+  {
+    "libSousCategorieRecette": "plat unique",
+    "categorieRecette": {
+      "libCatRecette": "Plats"
+    }
+  },
+  {
+    "libSousCategorieRecette": "œufs",
+    "categorieRecette": {
+      "libCatRecette": "Plats"
+    }
+  },
+  {
+    "libSousCategorieRecette": "plat végétarien",
+    "categorieRecette": {
+      "libCatRecette": "Plats"
+    }
+  },
+  {
+    "libSousCategorieRecette": "pâtes, riz, semoule",
+    "categorieRecette": {
+      "libCatRecette": "Plats"
+    }
+  },
+  {
+    "libSousCategorieRecette": "plats au fromage",
+    "categorieRecette": {
+      "libCatRecette": "Plats"
+    }
+  },
+  {
+    "libSousCategorieRecette": "dessert au chocolat",
+    "categorieRecette": {
+      "libCatRecette": "Desserts"
+    }
+  },
+  {
+    "libSousCategorieRecette": "gâteau",
+    "categorieRecette": {
+      "libCatRecette": "Desserts"
+    }
+  },
+  {
+    "libSousCategorieRecette": "flan",
+    "categorieRecette": {
+      "libCatRecette": "Desserts"
+    }
+  },
+  {
+    "libSousCategorieRecette": "crème",
+    "categorieRecette": {
+      "libCatRecette": "Desserts"
+    }
+  },
+  {
+    "libSousCategorieRecette": "mousse",
+    "categorieRecette": {
+      "libCatRecette": "Desserts"
+    }
+  },
+  {
+    "libSousCategorieRecette": "tarte",
+    "categorieRecette": {
+      "libCatRecette": "Desserts"
+    }
+  },
+  {
+    "libSousCategorieRecette": "tiramisu",
+    "categorieRecette": {
+      "libCatRecette": "Desserts"
+    }
+  },
+  {
+    "libSousCategorieRecette": "crêpe",
+    "categorieRecette": {
+      "libCatRecette": "Desserts"
+    }
+  },
+  {
+    "libSousCategorieRecette": "cocktails avec alcool",
+    "categorieRecette": {
+      "libCatRecette": "Boissons"
+    }
+  },
+  {
+    "libSousCategorieRecette": "cocktails sans alcool",
+    "categorieRecette": {
+      "libCatRecette": "Boissons"
+    }
+  },
+  {
+    "libSousCategorieRecette": "pancakes",
+    "categorieRecette": {
+      "libCatRecette": "Petit-déj/Brunch"
+    }
+  },
+  {
+    "libSousCategorieRecette": "brioches",
+    "categorieRecette": {
+      "libCatRecette": "Petit-déj/Brunch"
+    }
+  },
+  {
+    "libSousCategorieRecette": "viennoiseries",
+    "categorieRecette": {
+      "libCatRecette": "Petit-déj/Brunch"
+    }
+  }
+]

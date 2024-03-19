@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Modification du profil {{ user.username }}
+{% endblock %}
+
+{% block body %}
+<h1>Modification du profil {{ user.username }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.username, {'label': 'Username' ~ ' *', 'attr': {'required': 'required'}}) }}
+    {{ form_row(form.nomPers, {'label': 'Nom de famille' ~ ' *', 'attr': {'required': 'required'}}) }}
+    {{ form_row(form.pnomPers, {'label': 'Prénom' ~ ' *', 'attr': {'required': 'required'}}) }}
+    {{ form_row(form.dateNais, {'label': 'Date de naissance' ~ ' *', 'attr': {'required': 'required'}}) }}
+    {{ form_row(form.emailPers, {'label': 'Email' ~ ' *', 'attr': {'required': 'required'}}) }}
+    {{ form_row(form.telPers, {'label': 'Numéro de téléphone' ~ ' *', 'attr': {'required': 'required'}}) }}
+
+    {{ form_row(form.adrPers, {'label': 'Adresse'}) }}
+    {{ form_row(form.villePers, {'label': 'Ville'}) }}
+    {{ form_row(form.cpPers, {'label': 'Code Postale'}) }}
+
+    {{ form_row(form.avatar, {'label': 'Avatar'}) }}
+    {{ form_row(form.submit, { 'label': 'Modifier' ,'attr': {'class': 'btn btn-primary w-100 p-3'}}) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+
+

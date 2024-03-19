@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/contactUs.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="main_bloc">
+        <h1>Nous contacter :</h1>
+        <div class="email_from">
+        <form action="#" method="post">
+            <ul>
+                <h3>Votre Nom :</h3>
+                <input type="text" id="name" name="user_name" />
+
+                <h3>Votre Email :</h3>
+                <input type="email" id="mail" name="user_email" />
+
+                <h3>Sujet :</h3>
+                <input type="text" id="subject" name="user_subject"/>
+
+                <h3>Dites nous :</h3>
+                <textarea id="msg" name="user_message"></textarea>
+
+                <h3>Joindre un document :</h3>
+                <input type="file" id="file" name="file" />
+
+            </ul>
+        </form>
+        </div>
+        <div class="send_button">
+            <button type="submit">Envoyer votre message</button>
+        </div>
+
+
+
+
+
+    </div>
+{% endblock %}

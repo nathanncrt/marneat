@@ -1,0 +1,246 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ recette.nomRecette }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/recipe.js') }}"></script>
+{% endblock %}
+
+
+{% block body %}
+    <div class="block">
+        <div class="recipe__header">
+            <h1>{{ recette.nomRecette }}</h1>
+            <p>Publié le {{ recette.datePubli|date('d/m/y') }} à {{ recette.datePubli|date('H:i') }} </p>
+        </div>
+        <div class="recipe__images">
+            <!-- Affiche d'une recette -->
+            {% if recette.affiche is not null %}
+                <img src="data:image/png;base64, {{ image(recette.affiche) }}" alt="Affiche de la recette {{ recette.nomRecette }}" class="recipe__mainPicture">
+            {% else %}
+                <img src="{{ asset('img/default-recipe.png') }}" alt="Image par défaut d'une recette sur Marn'Eat" class="recipe__mainPicture">
+            {% endif %}
+
+            {% if imagesRecette is not empty %}
+            <div class="recipe__extraPictures-title"> Plus de photos de la recette </div>
+            {% endif %}
+
+            <div class="recipe__extraPictures">
+                {% if imagesRecette is empty %}
+                    <!-- On n'affiche rien -->
+                {% else %}
+                    <!-- On parcourt les images supplémentaires de la recette -->
+                    {% for image in imagesRecette %}
+                        <img src="data:image/png;base64, {{ image(image.jpeg) }}" alt="Image supplémentaire de la recette {{ recette.nomRecette }}" class="recipe__extraPicture">
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="recipe__details">
+            <div class="recipe__author">
+                {% if auteur.avatar %}
+                    <img src="data:image/png;base64,{{ image(auteur.avatar) }}" alt="image_auteur" class="recipe__author-avatar">
+                {% else %}
+                    <img src="{{ asset('img/default-picture.png') }}" alt="Image par défaut d'un auteur sur Marn'Eat" class="recipe__author-avatar">
+                {% endif %}
+                <div class="recipe__author-pseudo"><a href="{{ path('app_author_show',{id:auteur.id}) }}"><p>Par {{ auteur.username }}</p></a></div>
+            </div>
+
+            <div class="recipe__difficulty">
+                <!-- Affichage suivant la difficulté de la recette -->
+                {% if recette.difficulte >= 1 and recette.difficulte <= 2 %}
+                    <p><i class="fa-duotone fa-dial-low"></i> Difficulté : Facile</p>
+                {% elseif recette.difficulte >= 3 and recette.difficulte <= 4 %}
+                    <p><i class="fa-duotone fa-dial-med"></i> Difficulté : Moyenne</p>
+                {% elseif recette.difficulte == 5 %}
+                    <p><i class="fa-duotone fa-dial-high"></i> Difficulté : Difficile</p>
+                {% endif %}
+            </div>
+
+            <div class="recipe__note">
+                {% if noteMoy is not null %}
+                    <p><i class="far fa-star"></i> Note : {{ noteMoy }}/5</p>
+                {% else %}
+                    <p>Aucune note pour cette recette</p>
+                {% endif %}
+                <a href="{{ path('app_recipe_coup-de-coeur', {id: recette.id}) }}">
+                    <button href="" class="recipe__addLike">
+                        <i class="fa-regular fa-heart like-icon"></i> Ajouter aux favoris
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="recipe__description">
+            {{ recette.descRecette }}
+        </div>
+
+    </div>
+
+    <div class="block">
+        <h1 class="recipe__title-style">
+            <i class="fa-sharp fa-light fa-basket-shopping"></i>
+            Ingrédients</h1>
+        <div class="d-flex justify-content-between align-items-center">
+        <div class="recipe__compteur">
+            <div id="moins"><button onclick="decrease()"><i class="fa-solid fa-minus"></i></button></div>
+            <div id="personCount">{{ recette.nbPers }}</div>
+            <div>Personnes</div>
+            <div style="display: none" id="personCountInitial">{{ recette.nbPers }}</div>
+            <div id="plus"><button onclick="increase()"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+        <div class="recipe__allergenes">
+            {% if allergenes is not empty %}
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Attention présence d'allergène
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for allergene in allergenes %}
+                            <li><a class="dropdown-item">{{ allergene.libAll }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        </div>
+
+        <div class="recipe__list-ingredients">
+            <!-- Informations ingrédients -->
+            {% for ingredient in ingredients %}
+                <div class="recipe__ingredient-card">
+                    <div class="recipe__ingredient">
+                        <a href="{{ path('app_ingredient_show', {id : ingredient.id}) }}">
+                            <div class="recipe__ingredient-image">
+                                {% if ingredient.imgIng is not null %}
+                                    <img src="data:image/png;base64,{{ image(ingredient.imgIng) }}" alt="Image de l'ingrédient {{ ingredient.nomIng }}">
+                                {% else %}
+                                    <!-- Afficher l'image par défaut -->
+                                    <img src="{{ asset('img/default-ingredient.png') }}" alt="Image d'un ingrédient par défaut sur Marn'Eat">
+                                {% endif %}
+                                <div class="recipe__ingredient-trait"></div>
+                            </div>
+                            <div class="recipe__ingredient-details">
+                                {% if quantitiesAndUnits[ingredient.id] is not null %}
+                                    <p class="recipe__ingredient-quantity" data-initial-value="{{ quantitiesAndUnits[ingredient.id].qteIngredients }}">{{ quantitiesAndUnits[ingredient.id].qteIngredients }} {{ quantitiesAndUnits[ingredient.id].uniteMesure }}</p>
+                                {% endif %}
+                                <p class="recipe__ingredient-name">{{ ingredient.nomIng | capitalize }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="block">
+        <h1 class="recipe__title-style"> <i class="fa-light fa-kitchen-set"></i> Ustensiles</h1>
+        <div class="recipe__list-utensils">
+            {% for u in ustensiles %}
+                <div class="recipe__utensil-card">
+                    <div class="recipe__utensil">
+                        {% if u.imgUs is not null %}
+                            <img src="data:image/png;base64, {{ image(u.imgUs) }}" alt="Image de l'utensile {{ u.nomUs }}" height="150" width="100">
+                        {% else %}
+                            <img src="{{ asset('img/default-ustensile.png') }}" alt="Image d'un utensile par défaut sur Marn'Eat">
+                        {% endif %}
+                        <div class="recipe__utensil-detail">
+                            <p class="recipe__utensil-name">{{ u.nomUs | capitalize }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="block">
+        <h1 class="recipe__title-style"> <i class="fa-light fa-hat-chef"></i> Préparation </h1>
+        <div class="recipe__time-details">
+            <div class="recipe__time">
+                <table>
+                    <thead>
+                    <tr>
+                        <th colspan="3"><h2>Temps</h2></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Préparation</td>
+                        <td>Repos</td>
+                        <td>Cuisson</td>
+                    </tr>
+                    <tr>
+                        <td>{{ recette.tpsPrepa|format_time('medium') }}</td>
+                        <td>{{ recette.tpsRepos|format_time('medium') }}</td>
+                        <td>{{ recette.tpsCuisson|format_time('medium') }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- Section "Étapes de la recette" -->
+        <div id="carouselExampleSteps" class="carousel slide">
+            <div class="carousel-inner">
+                {% for e in etapes %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <div class="recipe__steps">
+                            <h1 class="recipe__steps-title">Étape N° {{ e.numEtape }} / {{ totalEtapes}} </h1>
+                            {% if e.imgEtape is not null %}
+                                <img src="data:image/png;base64,{{ image(e.imgEtape) }}" alt="Image Étape" class="d-block  recipe__steps-img">
+                            {% else %}
+                                <img src="{{ asset('img/default-etape.png') }}" alt="Image d'une étape par défaut sur Marn'Eat" class="d-block  recipe__steps-img">
+                            {% endif %}
+                            <p class="recipe__steps-desc">{{ e.descEtape }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Contrôles du carrousel - Précédent et Suivant -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSteps" data-bs-slide="prev">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSteps" data-bs-slide="next">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+        <p class="recipe__steps-info">Utilisez les flèches afin de défiler les différentes étapes de la recette</p>
+
+    </div>
+
+
+    <div class="block">
+        <div class="recette__commentaires">
+                <h1 class="recipe__title-style"><i class="fa-sharp fa-regular fa-comments"></i> Commentaires</h1>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <h4>Cette recette vous a plu ? N'hésitez pas à donner votre avis.  <a href="{{ path('app_recipe_comment', {id: recette.id}) }}"><button> Je laisse un avis</button></a> <a href="{{ path('app_recipe_note', {id : recette.id}) }}"><button>Je note la recette</button></a></h4>
+
+                {% else %}
+                    <h4>Pour laisser un avis sur cette recette, <a href="{{ path('app_login') }}">Connectez-vous</a> ou <a href="{{ path('app_register') }}">Créez-vous un compte</a> </h4>
+            {% endif %}
+
+            {% if commentaire is not empty %}
+                {% for c in commentaire %}
+                        <p>Publié par {{ c.userComm.username }} le {{ c.datePubli|date('d/m/Y') }} à {{ c.datePubli|date('H:i') }}</p>
+                        <li>{{ c.textComm }}</li>
+                {% endfor %}
+            {% else %}
+                <h5>C'est bien vide par ici ...</h5>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes coups de coeur{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/profile-coupDeCoeur.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="block">
+        <div class="arrow-backProfil" title="Retour à la page profil">
+            <a href="{{ path('app_profile', {id : user.id}) }}"><i class="fa-light fa-circle-arrow-left"></i></a>
+        </div>
+        <div class="profil__like">
+            <h1>Mes Coups de Coeur</h1>
+            <div class="profil__like-recipes">
+                {% if recipes is not empty %}
+                    {% for recipe in recipes %}
+                        <div class="profil__recipe-card">
+                            <a href="{{ path('app_recipe_show', {id: recipe.getId}) }}">
+                            {% if recipe.affiche is not null %}
+                                <img src="data:image/png;base64, {{ image(recipe.affiche) }}" alt="Image de la recette {{ recipe.nomRecette }}" class="profil__recipe-image">
+                            {% else %}
+                                <img src="{{ asset('img/default-recipe.png') }}" class="profil__recipe-image" alt="Image Recette">
+                            {% endif %}
+                            <h2 class="profil__recipe-name">{{ recipe.nomRecette }}</h2>
+                            </a>
+                            <a href="{{ path('app_profile_coup-de-coeur_delete', {id: user.id, recipe_id : recipe.id}) }}" title="Supprimer de vos coups de coeur"><i class="fa-light fa-trash"></i></a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Aucun Coup de coeur ici ... <a href="{{ path('app_recipe') }}">Consultez notre catalogue de recette</a> </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

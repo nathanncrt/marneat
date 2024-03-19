@@ -1,0 +1,87 @@
+/* Style du header de la page */
+.recipeSubCategory__header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/* Style de la liste des recettes */
+.recipeSubCategory__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    height: auto;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 30px;
+    background: #E3E3E3;
+    width: 70%;
+}
+
+.recipeSubCategory__list a {
+    color: black;
+    position: relative;
+    text-decoration: none;
+}
+
+.recipeSubCategory__list img{
+    width: 240px;
+    height: 240px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.recipeSubCategory__list h2{
+    text-decoration: none;
+    text-align: center;
+}
+
+
+
+/* Style d'une recette dans la liste */
+
+.recipeSubCategory__recipe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 6px 10px 10px gray;
+    margin: 10px;
+    width: 20%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    min-height: 400px;
+}
+.recipeSubCategory__recipe img{
+    width: 240px;
+    height: 240px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+.recipeSubCategory__list .recipeSubCategory__recipe:hover img{
+    transform: scale(1.05);
+}
+
+@media(max-width: 856px) {
+    .recipeSubCategory__list img {
+        width: 120px;
+        height: 120px;
+    }
+    .recipeSubCategory__recipe {
+        min-height: 250px;
+        min-width: 150px
+    }
+}

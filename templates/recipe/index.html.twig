@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marn'Eat : Catalogue des recettes {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/catalogue-recette.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block body %}
+    <div class="titre_liste">
+        <h1> Catalogue des recettes </h1>
+    </div>
+
+    <div class="section__filter">
+        <h1>Section Filtre </h1>
+        {{ form_start(form) }}
+
+        {{ form_row(form.categorieRecette, {'label': 'Catégorie de Recette'}) }}
+
+        {{ form_row(form.sousCategorieRecette, {'label': 'Sous-catégorie de Recette'}) }}
+
+        {{ form_row(form.ingredients, {'label': 'Ingrédients'}) }}
+
+        {{ form_row(form.allergenes, {'label': 'Allergènes'}) }}
+
+        <div class="d-flex justify-content-between align-items-center">
+            {{ form_row(form.submit, {'label': 'Filtrer', 'attr': {'class': 'btn btn-primary btn-lg'}}) }}
+            {{ form_row(form.cancel, {'label': 'Réinitialiser les filtres', 'attr': {'class': 'btn btn-secondary btn-lg'}}) }}
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+
+    <div class="section__recipe-list">
+        {% if recipes is empty and form is not empty %}
+            <h1>Désole il semble qu'il n'y a pas de recettes avec votre filtre !</h1>
+        {% endif %}
+        {% for recipe in recipes %}
+            <div class="section__recipe">
+                <a href="{{ path('app_recipe_show',{id: recipe.id}) }}">
+                    {% if recipe.affiche is not null %}
+                        <img src="data:image/png;base64, {{ image(recipe.affiche) }}" alt="Image de la recette {{ recipe.nomRecette }}" class="image_recette">
+                    {% else %}
+                        <img src="{{ asset('img/default-recipe.png') }}" alt="Image par défaut d'une recette sur Marn'Eat">
+                    {% endif %}
+                    <h2>{{ recipe.nomRecette }}</h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Condition si tous les items générés ne font qu'une page, on affiche pas la barre de navigation des n° de pages #}
+    {% if recipes.getTotalItemCount() > recipes.getItemNumberPerPage() and pageBool is same as(true) %}
+    <div class="custom-pagination">
+        <p>{{ knp_pagination_render(recipes) }}</p>
+    </div>
+    {% endif %}
+
+{% endblock %}

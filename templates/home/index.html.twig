@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marn'Eat : votre source d'inspiration culinaire{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    {% for section in sections %}
+        <section class="section">
+            {% set recettes = recipesSection(section.id)%}
+            {% set recette =  recettes[0]%}
+            <div class="section__header">
+                <h1 class="section__title">{{ section.libSec }}</h1>
+                <div>
+                    <h2> voir plus </h2>
+                    <a href="{{ path('app_section_show', {id: section.id}) }}">
+                        <button class="section__boutton">
+                            <span class="material-icons">trending_flat</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="section__content">
+                <div class="section__left">
+                    <!-- Recette principale à gauche -->
+                    <div class="recipe-main">
+                        <a href="{{ path('app_recipe_show', {id: recette.getId}) }}">
+                        {% if recette.affiche is not null %}
+                            <img src="data:image/png;base64, {{image(recette.affiche)}}" alt="Image de la recette {{ recette.nomRecette }}">
+                        {% else %}
+                            <img src="{{ asset('img/default-recipe.png') }}" alt="Image par défaut d'une recette sur Marn'Eat">
+                        {% endif %}
+                        <h2>{{ recette.nomRecette }}</h2>
+                        </a>
+                        <div class="section__autor">
+                            {% if recette.userCreator.avatar is not null %}
+                                <img src="data:image/png;base64, {{image(recette.userCreator.avatar)}}" alt="Avatar de l'utilisateur {{ recette.userCreator.avatar }}">
+                            {% else %}
+                                <img src="{{ asset('img/default-picture.png') }}" alt="Image par défaut d'un utilisateur sur Marn'Eat">
+                            {% endif %}
+                            <a href="{{ path('app_author_show',{id:recette.userCreator.id}) }}"><p>par : {{ recette.userCreator.username }}</p></a>
+                        </div>
+                    </div>
+                </div>
+                {% set recette = recettes[1] %}
+                <div class="section__right">
+                    <!-- Trois recettes à droite -->
+                    <div class="recipe-list">
+                        <div class="recipe-item">
+                            <a href="{{ path('app_recipe_show', {id: recette.getId}) }}">
+                            {% if recette.affiche is not null %}
+                                <img src="data:image/png;base64, {{image(recette.affiche)}}" alt="Image de la recette {{ recette.nomRecette }}">
+                            {% else %}
+                                <img src="{{ asset('img/default-recipe.png') }}" alt="Image par défaut d'une recette sur Marn'Eat">
+                            {% endif %}
+                            <h3>{{ recette.nomRecette }}</h3>
+                            </a>
+                            <div class="section__autor">
+                                {% if recette.userCreator.avatar is not null %}
+                                    <img src="data:image/png;base64, {{image(recette.userCreator.avatar)}}" alt="Avatar de l'utilisateur {{ recette.userCreator.avatar }}">
+                                {% else %}
+                                    <img src="{{ asset('img/default-picture.png') }}">
+                                {% endif %}
+                                <a href="{{ path('app_author_show',{id:recette.userCreator.id}) }}"><p>Réalisée par : {{ recette.userCreator.username }}</p></a>
+                            </div>
+                        </div>
+                        {% set recette = recettes[2] %}
+                        <div class="recipe-item">
+                            <a href="{{ path('app_recipe_show', {id: recette.getId}) }}">
+                            {% if recette.affiche is not null %}
+                                <img src="data:image/png;base64, {{image(recette.affiche)}}" alt="Image de la recette {{ recette.nomRecette }}">
+                            {% else %}
+                                <img src="{{ asset('img/default-recipe.png') }}" alt="Image par défaut d'une recette sur Marn'Eat">
+                            {% endif %}
+                                <h3>{{ recette.nomRecette }}</h3>
+                            </a>
+                            <div class="section__autor">
+                                {% if recette.userCreator.avatar is not null %}
+                                    <img src="data:image/png;base64, {{image(recette.userCreator.avatar)}}" alt="Avatar de l'utilisateur {{ recette.userCreator.avatar }}">
+                                {% else %}
+                                    <img src="{{ asset('img/default-picture.png') }}" alt="Image par défaut d'une recette sur Marn'Eat">
+                                {% endif %}
+                                <a href="{{ path('app_author_show',{id:recette.userCreator.id}) }}"><p>Réalisée par : {{ recette.userCreator.username }}</p></a>
+                            </div>
+                        </div>
+                        {% set recette = recettes[3] %}
+                        <div class="recipe-item">
+                            <a href="{{ path('app_recipe_show', {id: recette.getId}) }}">
+                            {% if recette.affiche is not null %}
+                                <img src="data:image/png;base64, {{image(recette.affiche)}}" alt="Image de la recette {{ recette.nomRecette }}">
+                            {% else %}
+                                <img src="{{ asset('img/default-recipe.png') }}" alt="Image par défaut d'une recette sur Marn'Eat">
+                            {% endif %}
+                            <h3>{{ recette.nomRecette }}</h3>
+                            </a>
+                            <div class="section__autor">
+                                {% if recette.userCreator.avatar is not null %}
+                                    <img src="data:image/png;base64, {{image(recette.userCreator.avatar)}}" alt="Avatar de l'utilisateur {{ recette.userCreator.avatar }}">
+                                {% else %}
+                                    <img src="{{ asset('img/default-picture.png') }}" alt="Image par défaut d'une recette sur Marn'Eat">
+                                {% endif %}
+                                <a href="{{ path('app_author_show',{id:recette.userCreator.id}) }}"><p>Réalisée par : {{ recette.userCreator.username }}</p></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}

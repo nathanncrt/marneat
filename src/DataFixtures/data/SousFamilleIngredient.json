@@ -1,0 +1,182 @@
+[
+  {
+    "libSousFamImg": "Fruits frais",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Fruits secs",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Fruits transformés",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Légumes",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Oléagineux",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Pain et produits de panification complets",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Pain et produits de panification raffinés",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Produits à base d’amidon, transformés sucrés/gras",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Autres féculents complets",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Autres féculents raffinés",
+    "familleIngredient": {
+      "libFamIng": "Féculents"
+    }
+  },
+  {
+    "libSousFamImg": "Charcuterie",
+    "familleIngredient": {
+      "libFamIng": "Viandes et charcuteries, produits de la pêche, œufs (VPO)"
+    }
+  },
+  {
+    "libSousFamImg": "Œufs",
+    "familleIngredient": {
+      "libFamIng": "Viandes et charcuteries, produits de la pêche, œufs (VPO)"
+    }
+  },
+  {
+    "libSousFamImg": "Poissons gras",
+    "familleIngredient": {
+      "libFamIng": "Viandes et charcuteries, produits de la pêche, œufs (VPO)"
+    }
+  },
+  {
+    "libSousFamImg": "Autres poissons, mollusques et crustacés",
+    "familleIngredient": {
+      "libFamIng": "Viandes et charcuteries, produits de la pêche, œufs (VPO)"
+    }
+  },
+  {
+    "libSousFamImg": "Viande hors volaille",
+    "familleIngredient": {
+      "libFamIng": "Viandes et charcuteries, produits de la pêche, œufs (VPO)"
+    }
+  },
+  {
+    "libSousFamImg": "Volaille",
+    "familleIngredient": {
+      "libFamIng": "Viandes et charcuteries, produits de la pêche, œufs (VPO)"
+    }
+  },
+  {
+    "libSousFamImg": "Desserts sucrés lactés",
+    "familleIngredient": {
+      "libFamIng": "Lait et produits laitiers"
+    }
+  },
+  {
+    "libSousFamImg": "Fromages",
+    "familleIngredient": {
+      "libFamIng": "Lait et produits laitiers"
+    }
+  },
+  {
+    "libSousFamImg": "Lait",
+    "familleIngredient": {
+      "libFamIng": "Lait et produits laitiers"
+    }
+  },
+  {
+    "libSousFamImg": "Produits laitiers frais nature",
+    "familleIngredient": {
+      "libFamIng": "Lait et produits laitiers"
+    }
+  },
+  {
+    "libSousFamImg": "Produits laitiers frais sucrés",
+    "familleIngredient": {
+      "libFamIng": "Lait et produits laitiers"
+    }
+  },
+  {
+    "libSousFamImg": "Beurre",
+    "familleIngredient": {
+      "libFamIng": "Matières grasses ajoutées"
+    }
+  },
+  {
+    "libSousFamImg": "Huiles végétales riches ALA",
+    "familleIngredient": {
+      "libFamIng": "Matières grasses ajoutées"
+    }
+  },
+  {
+    "libSousFamImg": "Huiles végétales pauvres en ALA et margarines",
+    "familleIngredient": {
+      "libFamIng": "Matières grasses ajoutées"
+    }
+  },
+  {
+    "libSousFamImg": "Sauces, crèmes fraîches et condiments",
+    "familleIngredient": {
+      "libFamIng": "Matières grasses ajoutées"
+    }
+  },
+  {
+    "libSousFamImg": "Produits sucrés ou sucrés et gras",
+    "familleIngredient": {
+      "libFamIng": "Produits sucrés ou sucrés et gras"
+    }
+  },
+  {
+    "libSousFamImg": "Eau de boisson",
+    "familleIngredient": {
+      "libFamIng": "Eau"
+    }
+  },
+  {
+    "libSousFamImg": "Boissons sucrées de type soda",
+    "familleIngredient": {
+      "libFamIng": "Boissons sucrées"
+    }
+  },
+  {
+    "libSousFamImg": "Jus de fruits",
+    "familleIngredient": {
+      "libFamIng": "Boissons sucrées"
+    }
+  },
+  {
+    "libSousFamImg": "Sel",
+    "familleIngredient": {
+      "libFamIng": "Sel"
+    }
+  }
+]

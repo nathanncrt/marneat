@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Modification de votre photo de profil {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/profile-form.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="block">
+        <div class="arrow-backProfil" title="Retour à la page profil">
+            <a href="{{ path('app_profile', {id : user.id}) }}"><i class="fa-light fa-circle-arrow-left"></i></a>
+        </div>
+
+        <div class="profil-avatar__update">
+            <h1>Modification de votre photo de profil</h1>
+            {{ form_start(form) }}
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="inputGroupFile01">Choisir un nouvel avatar</label>
+                        {{ form_widget(form.avatar, {'attr': {'class': 'custom-file-input', 'id': 'inputGroupFile01'}}) }}
+                    </div>
+                </div>
+                {{ form_row(form.submit, { 'label': 'Modifier', 'attr': {'class': 'btn btn-success w-100 p-3'}}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

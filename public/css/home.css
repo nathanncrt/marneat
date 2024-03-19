@@ -1,0 +1,160 @@
+/* Styles la section */
+.section {
+    height: auto;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 30px;
+    background: #E3E3E3;
+    /*opacity: 0.98;*/
+    width: 70%;
+}
+
+.section img{
+    border-radius: 20px;
+}
+
+.section__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+.section__header div {
+    display: flex;
+
+}
+
+.section__header div h2 {
+    margin-right: 10px;
+}
+
+.section__boutton {
+    border-radius: 20px;
+    padding: 4px 8px;
+    border: 2px solid #000;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.section__boutton:hover {
+    transform: scale(1.1);
+    background-color: #FFD700;
+    color: black;
+}
+.section__title {
+}
+
+.section__content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.section__left {
+    padding-right: 20px;
+    box-sizing: border-box;
+    width: 70%;
+}
+
+
+.section__right {
+    width: 30%;
+    height: 100%;
+}
+
+.section__autor {
+    display: flex;
+    align-items: center;
+
+}
+
+.section__autor p {
+    margin: 0 0 0 10px;
+}
+
+.section__autor img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.section__autor img:hover{
+    transition: transform 0.3s ease;
+}
+
+.recipe-item .section__autor img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Styles pour les recettes */
+
+.recipe-main a{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    text-decoration: none;
+    color: black
+}
+
+
+
+.recipe-main h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.recipe-main p {
+    font-style: italic;
+}
+
+.recipe-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.recipe-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.recipe-item a {
+    text-decoration: none;
+    color: black
+}
+
+.recipe-item img {
+    width: 100%;
+    height: auto;
+}
+
+.recipe-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.recipe-item p {
+    font-style: italic;
+}
+@media(max-width: 856px) {
+    .section__autor {
+        display: flex;
+        align-items: center;
+        flex-direction:column
+    }
+
+    .section__header div h2 {
+        display: none
+    }
+    .section__right {
+        display:none;
+    }
+    .section__left{
+        width: 100%;
+    }
+}

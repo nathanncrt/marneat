@@ -1,0 +1,58 @@
+[
+    {
+        "libAll": "Oeuf",
+        "descAll": "Tous les aliments et produits contenant des oeufs et des dérivés d'oeufs"
+    },
+    {
+        "libAll": "Lait",
+        "descAll": "Tous les aliments et produits contenant du lait et des dérivés de lait y compris le lactose"
+    },
+    {
+        "libAll": "Mollusques",
+        "descAll": "Tous les aliments et produits des mollusques et leurs dérivés"
+    },
+    {
+        "libAll": "Gluten",
+        "descAll": "Tous les aliments et produits contenant du gluten et leurs dérivés"
+    },
+    {
+        "libAll": "Fruits à coques",
+        "descAll": "Tous les aliments et produits contenant fruits à coques et leurs dérivés"
+    },
+    {
+        "libAll": "Sulfites",
+        "descAll": "Tous les aliments et produits contenant des sulfites et dérivés"
+    },
+    {
+        "libAll": "Crustacés",
+        "descAll": "Tous les aliments et produits contenant des crustacés et leurs dérivés"
+    },
+    {
+        "libAll": "Arachides",
+        "descAll": "Tous les aliments et produits contenant des arachides et leurs dérivés"
+    },
+    {
+        "libAll": "Sésame",
+        "descAll": "Tous les aliments et produits contenant du sésame et des dérivés de sésame"
+    },
+    {
+        "libAll": "Lupin",
+        "descAll": "Autre noms du lupin et produits du lupin (Farine de lupins, produits de boulangerie tels que tartes, gaufres, crêpes, substituts de viande végétariens)"
+    },
+    {
+        "libAll": "Poisson",
+        "descAll": "Tous les aliments et produits contenant du poisson et des dérivés de poisson"
+    },
+    {
+        "libAll": "Soja",
+        "descAll": "Tous les produits ou aliments contenant du soja et des produits dérivés du soja"
+    },
+    {
+        "libAll": "Céleri",
+        "descAll": "Autres noms du céleri et produits dérivés"
+    },
+    {
+        "libAll": "Moutarde",
+        "descAll": "Autres noms de la moutarde et produits dérivés"
+    }
+]

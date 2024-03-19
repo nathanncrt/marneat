@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}Marn'Eat : Page des Auteurs {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/author.css') }}">
+
+
+{% endblock %}
+{% block body %}
+<div class="main_bloc">
+    <h1>Les créations de {{ user.username }} :</h1>
+        {% if user.avatar is not null %}
+            <img src="data:image/png;base64, {{image(user.avatar)}}" alt="Avatar de l'utilisateur {{ user.avatar }}">
+        {% else %}
+            <img src="{{ asset('img/default-picture.png') }}" alt="Image par défaut d'un utilisateur sur Marn'Eat">
+        {% endif %}
+            {% if user.descPers is not null %}
+                <p>{{ user.descPers }} </p>
+            {% else %}
+                <p> cet utilisateur n'a pas de description</p>
+            {% endif %}
+
+    <div class="author__section_recipe-list">
+        {% for recipe in user.recettes %}
+            <div class="author__section_recipe">
+                <a href="{{ path('app_recipe_show',{id: recipe.id}) }}">
+                    {% if recipe.affiche is not null %}
+                        <img src="data:image/png;base64, {{ image(recipe.affiche) }}" alt="Image de la recette {{ recipe.nomRecette }}" class="image_recette">
+                    {% else %}
+                        <img src="{{ asset('img/default-recipe.png') }}" alt="Image par défaut d'une recette sur Marn'Eat">
+                    {% endif %}
+                    <h3>{{ recipe.nomRecette }}</h3>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

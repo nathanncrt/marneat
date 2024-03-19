@@ -1,0 +1,83 @@
+[
+  {
+    "codeUm": "g",
+    "libUm": "gramme"
+  },
+  {
+    "codeUm": "kg",
+    "libUm": "kilogramme"
+  },
+  {
+    "codeUm": "mg",
+    "libUm": "milligramme"
+  },
+  {
+    "codeUm": "once",
+    "libUm": "once"
+  },
+  {
+    "codeUm": "livre",
+    "libUm": "livre"
+  },
+  {
+    "codeUm": "ml",
+    "libUm": "millilitre"
+  },
+  {
+    "codeUm": "cl",
+    "libUm": "centilitre"
+  },
+  {
+    "codeUm": "dl",
+    "libUm": "décilitre"
+  },
+  {
+    "codeUm": "L",
+    "libUm": "litre"
+  },
+  {
+    "codeUm": "càc",
+    "libUm": "cuillère à café"
+  },
+  {
+    "codeUm": "càs",
+    "libUm": "cuillère à soupe"
+  },
+  {
+    "codeUm": "tass.",
+    "libUm": "tasse"
+  },
+  {
+    "codeUm": "verre",
+    "libUm": "verre"
+  },
+  {
+    "codeUm": "pinc.",
+    "libUm": "pincée"
+  },
+  {
+    "codeUm": "filet",
+    "libUm": "filet"
+  },
+  {
+
+    "codeUm": "trch.",
+    "libUm": "tranche"
+  },
+  {
+    "codeUm": "feuil",
+    "libUm": "feuille"
+  },
+  {
+    "codeUm": "bâton",
+    "libUm": "bâtonnet"
+  },
+  {
+    "codeUm": "brin",
+    "libUm": "brin"
+  },
+  {
+    "codeUm": "gouss",
+    "libUm": "gousses"
+  }
+]

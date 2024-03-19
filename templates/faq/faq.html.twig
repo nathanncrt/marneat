@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="main_bloc">
+        <h1>Questions fréquentes :</h1>
+        <div class="main_bloc">
+            <p class="d-inline-flex gap-1">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#question1" aria-expanded="false" aria-controls="collapseExample">
+                    Comment s'inscrire ?
+                </button>
+            </p>
+            <div class="collapse" id="question1">
+                <div class="card card-body">
+                    <p>Accéder au site web :
+                        Ouvrez votre navigateur web sous vpn ou sur un pc de l’iut, et entrez l’URL suivante : 10.31.31.59/</p>
+                    <br>
+                    <p>Trouver le bouton d’inscription :</p> <img src='{{ asset('img/Inscription.PNG') }}' alt="image_inscription" class="home" width="150%">
+                    <br>
+                    <p>Sur la page d’accueil du site, recherchez le bouton de profil qu’il vous demande de vous identifier ou de vous inscrire.</p>
+                    <br>
+                    <p>Cliquez sur le bouton d’inscription :
+                    Une fois le bouton d’inscription affiché cliquez dessus</p>
+                    <br>
+                    <p>Remplir le formulaire d’inscription :
+                    Vous serez redirigé vers une nouvelle page ou vous devrez remplir un formulaire. Remplissez les données obligatoires et celle non obligatoire si vous le voulez.</p>
+                    <br>
+                    <p>Finaliser l’inscription :
+                    Après avoir rempli tous les champs que vous souhaitez, cliquez sur le bouton s’inscrire pour finaliser votre inscription. Vous allez être redirigé vers la page d’accueil du site.</p>
+                    <br>
+                    <p>Explorer le site :
+                    Vous pouvez maintenant accéder au page réserver aux utilisateurs connectés.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

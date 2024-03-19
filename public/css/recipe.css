@@ -1,0 +1,527 @@
+/*Style éléments recette*/
+.block{
+    background: #E3E3E3;
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+}
+
+/*Style du haut de page d'une recette*/
+.recipe__header{
+    text-align: center;
+    margin: 0 0 20px 0;
+
+}
+
+/* Style des images d'une recette*/
+
+
+.recipe__images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe__mainPicture {
+    width: 500px;
+    height: 500px;
+    margin-top: 10px;
+}
+
+.recipe__extraPictures {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.recipe__extraPictures-title{
+    margin: 10px;
+    text-decoration: underline;
+}
+.recipe__extraPicture {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+}
+
+/* Style des détails d'une recette (description, auteur, difficulté, note)*/
+
+.recipe__details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 90%;
+}
+
+.recipe__author{
+    display: flex;
+}
+
+.recipe__author-avatar{
+    border-radius: 100% ;
+    width: 50px;
+    margin: 10px;
+}
+
+.recipe__author-pseudo{
+    align-self: center;
+    font-weight: bold;
+}
+
+.recipe__author-pseudo a {
+    text-decoration: none;
+    color: black
+}
+
+.recipe__difficulty {
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.recipe__note {
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.recipe__addLike {
+    border: none;
+    background: none;
+    font-size: 16px;
+    transition: transform 0.1s ease-in-out;
+    border-radius: 20%;
+}
+.recipe__addLike:hover .like-icon {
+    transform: scale(1.4);
+}
+
+.recipe__addLike:hover{
+    text-decoration: underline #FFD700 2px;
+}
+
+.recipe__addLike i.fa-heart {
+    color: black;
+}
+
+.recipe__addLike:hover i.fa-heart {
+    color: red;
+}
+
+.recipe__description {
+    border-radius: 30px;
+    background: #666666;
+    padding: 10px;
+    color: #e3e3e3;
+    margin: 20px;
+    font-family: Arial;
+}
+
+/* Style pour les titres 'Ingrédients', 'Ustensiles', 'Préparation', 'Commentaires' */
+.recipe__title-style {
+    position: relative;
+    margin-top: 20px;
+}
+
+.recipe__title-style::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #FFD700;
+    height: 2px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Style du compteur de la page recette */
+
+.recipe__compteur{
+    font-family: Arial;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
+    border: black 1px solid;
+    border-radius: 15px;
+    width: 300px;
+    margin: 20px 0;
+    background: #666666;
+    font-size: 1.3em;
+    color: #FFD700;
+}
+
+.recipe__compteur i {
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 100%;
+}
+
+.recipe__compteur button i:hover {
+    transform: scale(1.3);
+}
+
+button[onclick]{
+    background: none;
+    border: none;
+    font-size: 35px;
+    margin: 0 15px;
+    color: white;
+}
+#moins{
+    border-right: white 3px solid;
+}
+#plus{
+    border-left: white 3px solid;
+}
+
+/* Style des ingrédients */
+
+.recipe__list-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.recipe__ingredient-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 6px 10px 10px gray;
+    margin: 5px;
+    width: 20%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.recipe__ingredient-image {
+    margin-top: 5px;
+    position: relative;
+}
+
+.recipe__ingredient-trait {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #FFD700;
+}
+
+.recipe__ingredient-card:hover {
+    transform: scale(1.1);
+}
+
+.recipe__ingredient-card img {
+    width: 100%;
+    border-radius: 10%;
+    margin-bottom: 10px;
+}
+
+.recipe__ingredient-details {
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.recipe__ingredient a {
+    text-decoration: none;
+}
+
+.recipe__ingredient-quantity {
+    color : black;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.recipe__ingredient-name {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    transition: font-weight 0.3s ease, text-decoration 0.3s ease, color 0.3s ease;
+}
+
+.recipe__ingredient-card:hover .recipe__ingredient-name {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+
+/* Style des ustensiles d'une recette */
+
+.recipe__list-utensils {
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    height: auto;
+    padding: 10px;
+    border-radius: 30px;
+    background: #E3E3E3;
+}
+
+.recipe__utensil-card {
+    width: calc(20% - 24px);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    background: #fff;
+    box-shadow: 6px 10px 10px gray;
+    width: 150px
+
+}
+
+.recipe__utensil-card img {
+    width: 130px;
+    height: 130px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.recipe__utensil-detail {
+    text-align: center;
+}
+
+.recipe__utensil-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.recipe__utensil-card :hover {
+    color: #FFD700;
+    transition: color ease-in-out 0.3s;
+}
+
+/* Style temps de préparation d'une recette */
+
+.recipe__time-details {
+    margin-top: 20px;
+}
+
+.recipe__time table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.recipe__time th,
+.recipe__time td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+
+.recipe__time th {
+    background-color: #f2f2f2;
+}
+
+.recipe__time th h2 {
+    margin: 0;
+}
+
+.recipe__time tbody td {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+
+}
+
+
+
+/* Style des étapes d'une recette */
+
+.carousel-item {
+    height: 400px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.carousel-item .recipe__steps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.recipe__steps-title {
+    margin: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.recipe__steps-img {
+    width: 20%;
+    max-height: 200px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+.recipe__steps-desc {
+    margin-top: 10px ;
+    background-color: #FFD700;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.fa-solid.fa-arrow-left,
+.fa-solid.fa-arrow-right {
+    font-size: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: black;
+}
+
+.recipe__steps-info {
+    font-family: Arial;
+    font-style: italic;
+    margin-top: 5px;
+    text-align: right;
+    font-size: 12px;
+}
+
+/* Style de la partie Commentaires */
+
+.recette__commentaires {
+    margin-top: 20px;
+}
+
+.recette__commentaires p
+{
+    font-family: Arial, serif;
+}
+
+.recette__commentaires li
+{
+    font-family: Arial, serif;
+}
+.recipe__title-style {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.recette__commentaires h4 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.recette__commentaires button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.recette__commentaires button:hover {
+    background-color: #2980b9;
+}
+
+.recette__commentaires a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.recette__commentaires a:hover {
+    text-decoration: underline;
+}
+
+.recette__commentaires p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.recette__commentaires li {
+    list-style-type: none;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.recette__commentaires li p {
+    margin: 0;
+    font-size: 16px;
+}
+
+
+
+
+/* Partie responsive */
+
+@media  screen and (max-width: 1330px){
+
+    .section__recipe {
+        width: calc(50% - 20px);
+    }
+
+    .section__recipe-list h2 {
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .section__recipe {
+        width: calc(100% - 20px);
+    }
+
+    .section__recipe-list h2 {
+        font-size: 1.2em;
+    }
+    .recipe__utensil-card img {
+        width: 90px;
+        height: 90px;
+    }
+    .recipe__mainPicture{
+        width: 300px;
+        height: 300px;
+    }
+    .recipe__ingredient-details
+    {
+        font-size: 65%
+    }
+}
+
+.titre_liste{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 100px;
+}
+
+.titre_liste button {
+    border-radius: 20px;
+    padding: 4px 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+}

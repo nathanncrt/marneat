@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/profil-form.css') }}">
+{% endblock %}
+
+{% block title %} Ajout d'un nouvel ingredient {% endblock %}
+{% block body %}
+    <div class="block">
+        <div class="arrow-backProfil" title="Retour à la page profil">
+            <a href="{{ path('app_profile_stock', {id : user.id}) }}"><i class="fa-light fa-circle-arrow-left"></i></a>
+        </div>
+
+        <div class="stock__create">
+            <h1 class="stock__create-title">Ajout d'un nouvel ingredient à votre frigo</h1>
+            {{ form_start(form) }}
+                {{ form_row(form.ingredient, {label : "Choisir un ingrédient"}) }}
+                {{ form_row(form.qteDispo, {label : "Indiquez sa quantité "}) }}
+                {{ form_row(form.uniteMesure, {label : "Indiquez son unite de Mesure "}) }}
+            <div class="stock__create-button">
+                {{ form_row(form.submit, {'label': 'Ajouter', 'attr': {'class': 'btn btn-success '}}) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+
+

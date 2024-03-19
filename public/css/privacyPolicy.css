@@ -1,0 +1,20 @@
+.main_bloc{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    height: auto;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 30px;
+    background: #E3E3E3;
+    width: 70%;
+    flex-direction:column;
+    min-height: 750px;
+}
+
+.rule{
+    text-align: start;
+    width:100%
+}

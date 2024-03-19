@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/fridge.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
+{% endblock %}
+
+
+{% block title %}Mon frigo{% endblock %}
+
+{% block body %}
+    <div class="stock__container-fridge">
+        <div class="arrow-backProfil" title="Retour à la page profil">
+            <a href="{{ path('app_profile', {id : user.id}) }}"><i class="fa-light fa-circle-arrow-left"></i></a>
+        </div>
+
+        <h1>Mon frigo</h1>
+        <a href="{{ path('app_profile_stock_create', {id: user.id}) }}">
+            <div class="stock-add" title="Ajouter un ingrédient">
+                <p>Ajouter un nouvel ingrédient</p>
+                <i class="fa-light fa-circle-plus"></i>
+            </div>
+        </a>
+        <div class="stock__fridge">
+            {% if stock is not empty %}
+                {% for element in stock %}
+                    <div class="fridge-ingredient-card">
+                        <img src="{{ element.ingredient.imgIng ? 'data:image/png;base64,' ~ image(element.ingredient.imgIng) : asset('img/default-ingredient.png') }}" alt="image__ing" class="fridge-ingredient-img">
+                        <div class="fridge-ingredient-info">
+                            <p>{{ element.ingredient.nomIng |capitalize }}</p>
+                            <p>Quantité: {{ element.qteDispo }}</p>
+                            <p>Unite de Mesure : {{ element.uniteMesure }}</p>
+                            <a href="{{ path('app_profile_stock_update', {id:user.id, stock_id: element.id}) }}" title="Editer la quantité de l'ingrédient"><i class="fa-light fa-pen"></i></a>
+                            <a href="{{ path('app_profile_stock_delete', {id:user.id, stock_id: element.id}) }}" title="Supprimer l'ingrédient"><i class="fa-light fa-trash"></i></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3>Brrrrr, il fait froid ici <i class="fa-thin fa-face-icicles"></i></h3>
+                <p><strong> NB : Vous pouvez ajouter un ingrédient en cliquant sur le bouton <i class="fa-light fa-circle-plus"></i> si dessus </strong></p>
+            {% endif %}
+        </div>
+    </div>
+
+    {# Condition si tous les items générés ne font qu'une page, on affiche pas la barre de navigation des n° de pages #}
+    {% if stock.getTotalItemCount() > stock.getItemNumberPerPage() %}
+        <div class="custom-pagination">
+            <p>{{ knp_pagination_render(stock) }}</p>
+        </div>
+    {% endif %}
+{% endblock %}
+

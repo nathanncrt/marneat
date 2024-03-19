@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/profil-form.css') }}">
+{% endblock %}
+
+{% block title %}Modification du stock {{ stock.ingredient.nomIng }}{% endblock %}
+
+{% block body %}
+    <div class="block">
+        <h1 class="stock__update-title">Edition de la quantité du stock de {{ stock.ingredient.nomIng  }}</h1>
+        {{ form_start(form)}}
+            {{ form_row(form.qteDispo, {label: 'Quantité de ' ~ stock.ingredient.nomIng |capitalize}) }}
+            {{ form_row(form.submit, {'label': 'Enregistrer', 'attr': {'class': 'btn btn-outline-primary'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,216 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création de votre recette !{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/recetteCreate.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+{#    {{ parent() }}#}
+{#    <script src="{{ asset('js/recetteCreate.js') }}"#}
+    <script>
+        window.onload = () => {
+            //on va chercher la categorie de recette pour afficher ses sous categories de recettes
+            let categorieRecette = document.querySelector("#create_recette_categorieRecette");
+
+            categorieRecette.addEventListener("change", function (){
+                let form = this.closest("form");
+                let data = this.name + "=" + this.value;
+
+                fetch(form.action, {
+                    method: form.getAttribute("method"),
+                    body: data,
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded; charset:UTF-8"
+                    }
+                })
+                    .then(response => response.text())
+                    .then(html => {
+                        let content = document.createElement("html");
+                        content.innerHTML = html;
+                        let newSelect = content.querySelector("#create_recette_sousCategorieRecette");
+                        document.querySelector("#create_recette_sousCategorieRecette").replaceWith(newSelect);
+                    })
+            });
+
+
+
+
+
+            // Utilisation pour ustensiles
+            let collectionUstensile = document.querySelector("#ustensiles");
+            let spanUstensile = collectionUstensile.querySelector("span.span__ustensile");
+            let boutonAjoutUstensile = document.createElement("button");
+            boutonAjoutUstensile.className = "ajout-ustensile btn secondary primary";
+            boutonAjoutUstensile.innerText = "Ajouter un ustensile";
+            spanUstensile.append(boutonAjoutUstensile);
+
+            collectionUstensile.dataset.index = collectionUstensile.querySelectorAll("input").length;
+
+            boutonAjoutUstensile.addEventListener("click", function () {
+                addButton(collectionUstensile, spanUstensile, collectionUstensile.dataset.prototype, boutonAjoutUstensile, "ustensile");
+            });
+
+            // Utilisation pour sections
+            let collectionSections = document.querySelector("#sections");
+            let spanSections = collectionSections.querySelector("span.span__section");
+            let boutonAjoutSections = document.createElement("button");
+            boutonAjoutSections.className = "ajout-section btn secondary primary";
+            boutonAjoutSections.innerText = "Ajouter une section";
+            spanSections.append(boutonAjoutSections);
+
+            collectionSections.dataset.index = collectionSections.querySelectorAll("input").length;
+
+            boutonAjoutSections.addEventListener("click", function () {
+                addButton(collectionSections, spanSections, collectionSections.dataset.prototype, boutonAjoutSections, "section");
+            });
+
+            // Utilisation pour ingrédients
+            let collectionIngredients = document.querySelector("#contenirs");
+            let spanIngredients = collectionIngredients.querySelector("span.span__ingredient");
+            let boutonAjoutIngredients = document.createElement("button");
+            boutonAjoutIngredients.className = "ajout-ingredient btn secondary primary";
+            boutonAjoutIngredients.innerText = "Ajouter un ingrédient";
+            spanIngredients.append(boutonAjoutIngredients);
+
+            collectionIngredients.dataset.index = collectionIngredients.querySelectorAll("input").length;
+
+            boutonAjoutIngredients.addEventListener("click", function () {
+                addButton(collectionIngredients, spanIngredients, collectionIngredients.dataset.prototype, boutonAjoutIngredients, "ingredient");
+            });
+
+            // Utilisation pour etapes
+            let collectionEtapes = document.querySelector("#etapes");
+            let spanEtapes = collectionEtapes.querySelector("span.span__etapes");
+            let boutonAjoutEtapes = document.createElement("button");
+            boutonAjoutEtapes.className = "ajout-etape btn secondary primary";
+            boutonAjoutEtapes.innerText = "Ajouter une etape";
+            spanEtapes.append(boutonAjoutEtapes);
+
+            collectionEtapes.dataset.index = collectionEtapes.querySelectorAll("input").length;
+
+            boutonAjoutEtapes.addEventListener("click", function () {
+                addButton(collectionEtapes, spanEtapes, collectionEtapes.dataset.prototype, boutonAjoutEtapes, "etapes");
+            });
+
+            // Utilisation pour imageRecettes
+            let collectionImageRecettes = document.querySelector("#imageRecettes");
+            let spanImageRecettes = collectionImageRecettes.querySelector("span.span__imageRecettes");
+            let boutonAjoutImageRecettes = document.createElement("button");
+            boutonAjoutImageRecettes.className = "ajout-imageRecette btn secondary primary";
+            boutonAjoutImageRecettes.innerText = "Ajouter une image";
+            spanImageRecettes.append(boutonAjoutImageRecettes);
+
+            collectionImageRecettes.dataset.index = collectionImageRecettes.querySelectorAll("input").length;
+
+            boutonAjoutImageRecettes.addEventListener("click", function () {
+                addButton(collectionImageRecettes, spanImageRecettes, collectionImageRecettes.dataset.prototype, boutonAjoutImageRecettes, "imageRecettes");
+            });
+
+
+
+        };
+
+        function addButton(collection, span, prototype, boutonAjout, type) {
+            let index = collection.dataset.index;
+
+            prototype = prototype.replace(new RegExp(`__${type}__`, 'g'), index);
+
+            let content = document.createElement("html");
+            content.innerHTML = prototype;
+            let newForm = content.querySelector("div");
+
+            let boutonSuppr = document.createElement("button");
+            boutonSuppr.type = "button";
+            boutonSuppr.className = "btn danger";
+            boutonSuppr.id = `delete-${type}-${index}`;
+            boutonSuppr.innerText = `Supprimer cette ${type}`;
+
+            newForm.append(boutonSuppr);
+
+            collection.dataset.index++;
+
+            span.insertBefore(newForm, boutonAjout);
+
+            boutonSuppr.addEventListener("click", function () {
+                this.parentElement.remove();
+            });
+        }
+
+
+    </script>
+{% endblock %}
+
+{% block body %}
+<div class="block">
+    <h1>Créons votre recette ensemble !</h1>
+    <p>Cette page n'est pas fonctionnelle</p>
+</div>
+    <div class="block">
+        <h1>Informations de votre recette !</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.nomRecette) }}
+        {{ form_row(form.descRecette) }}
+        {{ form_row(form.TpsPrepa) }}
+        {{ form_row(form.TpsCuisson) }}
+        {{ form_row(form.TpsRepos) }}
+        {{ form_row(form.affiche) }}
+        {{ form_row(form.nbPers) }}
+        {{ form_row(form.difficulte) }}
+    </div>
+
+    <div class="block">
+        <h1>Choisissez vos ustensiles !</h1>
+        <div id="ustensiles" data-prototype="{{ form_row(form.ustensiles.vars.prototype)|e('html_attr') }}">
+            <div class="hidden"> {{ form_row(form.ustensiles) }} </div>
+            <span class="span__ustensile"></span>
+        </div>
+    </div>
+
+    <div class="block">
+        <h1>Choisissez vos sections !</h1>
+        <div id="sections" data-prototype="{{ form_row(form.sections.vars.prototype)|e('html_attr') }}">
+            <div class="hidden"> {{ form_row(form.sections) }} </div>
+            <span class="span__section"></span>
+        </div>
+    </div>
+
+    <div class="block">
+        <h1>Choisissez vos Ingredients !</h1>
+        <div id="contenirs" data-prototype="{{ form_row(form.contenirs.vars.prototype)|e('html_attr') }}">
+            <div class="hidden"> {{ form_row(form.contenirs) }} </div>
+            <span class="span__ingredient"></span>
+        </div>
+    </div>
+
+    <div class="block">
+        <h1>Choisissez vos etapes !</h1>
+        <div id="etapes" data-prototype="{{ form_row(form.etapes.vars.prototype)|e('html_attr') }}">
+            <div class="hidden"> {{ form_row(form.etapes) }} </div>
+            <span class="span__etapes"></span>
+        </div>
+    </div>
+
+    <div class="block">
+        <h1>Choisissez les images de votre recette !</h1>
+        <div id="imageRecettes" data-prototype="{{ form_row(form.imageRecettes.vars.prototype)|e('html_attr') }}">
+            <div class="hidden"> {{ form_row(form.imageRecettes) }} </div>
+            <span class="span__imageRecettes"></span>
+        </div>
+    </div>
+
+    <div class="block">
+        <h1>Choisissez la sous categorie de votre recette !</h1>
+        {{ form_row(form.categorieRecette) }}
+        {{ form_row(form.sousCategorieRecette) }}
+        {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+
+
+
+

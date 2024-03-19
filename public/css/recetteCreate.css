@@ -1,0 +1,14 @@
+.block {
+    background: #E3E3E3;
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 70%;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,56 @@
+/*Style des pages Ajout de commentaire / Ajout coup de coeur d'une recette */
+
+.block{
+    background: #E3E3E3;
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+}
+
+.arrow-backProfil{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.arrow-backProfil a i{
+    color: black;
+    font-size: 40px;
+    border-radius: 50%;
+}
+
+.arrow-backProfil a i:hover{
+    background-color: #FFD700
+}
+
+
+/* Style de la page d'ajout d'un commentaire */
+
+.recipe__addComment-title {
+    text-align: center;
+}
+
+/* Style de la page d'ajout d'une recette au coup de coeur */
+
+.recipe__addLike-title{
+    text-align: center;
+}
+
+.recipe__addLike-buttons form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-top: 20px;
+}
+
+/* Style de la page d'ajout d'une note à une recette */
+
+.recipe__addNote-title{
+    text-align: center;
+}

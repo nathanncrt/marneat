@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notre catalogue d'ingrédients{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/ingredient.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="list__ingredients-header">
+        <h1>Catalogue des ingrédients</h1>
+        <p>Sélectionnez la première lettre d'un ingrédient.</p>
+    </div>
+    <ul class="list__letters">
+        {% set letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
+
+        {% for letter in letters %}
+            <li>
+                <!-- Si la lettre correspond à la lettre recherchée, on lui ajoute le style-->
+                {% if letter == searchLetter %}
+                    <a class="letter--selected" href="{{ path('app_ingredient', {'letter': letter}) }}">{{ letter }}</a>
+                {% else %}
+                    <a class="letter" href="{{ path('app_ingredient', {'searchLetter': letter}) }}">{{ letter }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="ingredient__list">
+        {% if ingredients is empty %}
+                <h2 class="ingredient__list-error">Il semble qu'il n'y ait pas d'ingrédients commençant par la lettre {{ searchLetter }} ...</h2>
+                    <img src="{{ asset('img/surpriseError.jpg') }}" class="ingredient__list-surpriseError" alt="Surprise">
+        {% endif %}
+
+        {% for ingredient in ingredients %}
+            <div class="ingredient__card">
+                <a href="{{ path('app_ingredient_show', {id : ingredient.id}) }}" class="ingredient__link">
+                    <div class="ingredient__info">
+                        {% if ingredient.imgIng %}
+                            <img src="data:image/png;base64, {{ image(ingredient.imgIng) }}" alt="image_ingredient" height="150" width="100">
+                        {% else %}
+                            <img src='{{ asset('img/default-ingredient.png') }}' alt="image_defautIngrédient" height="150" width="100">
+                        {% endif %}
+                        <p class="ingredient__info-title">{{ ingredient.nomIng | capitalize }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Condition si tous les items générés ne font qu'une page, on affiche pas la barre de navigation des n° de pages #}
+    {% if ingredients.getTotalItemCount() > ingredients.getItemNumberPerPage() %}
+        <div class="custom-pagination">
+            <p>{{ knp_pagination_render(ingredients) }}</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,48 @@
+.form__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col-md-6{
+    width: 90%;
+}
+
+.form__register-title{
+    text-align: center;
+    margin-top: 10px;
+}
+.form{
+    width: 100%;
+}
+.form__register {
+    background: #E3E3E3;
+    border-radius: 40px;
+    width: 60%;
+    margin:40px
+}
+
+.form-control label:hover{
+
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form__register-button{
+    display: flex;
+    justify-content: center;
+}
+.register__submit {
+    display: block;
+    margin: 20px auto;
+    background-color: #FFD700;
+    transition: background-color 0.3s ease;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: 40%;
+}
+
+.form__register button:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    font-size: 1.2em;
+}

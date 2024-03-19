@@ -1,0 +1,60 @@
+/* Style  pour la pagination */
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    background-color: #e3e3e3;
+    width: 40%;
+    border-radius: 20px;
+}
+
+.custom-pagination .pagination {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.custom-pagination .pagination a{
+    border: 1px solid #ccc;
+}
+
+.custom-pagination .pagination span,
+.custom-pagination .pagination a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Style n° page actuel */
+.custom-pagination .pagination .current {
+    background-color: #FFD700;
+    color: black;
+    border-radius: 50%;
+}
+
+/* Transition hover sur le cercle  */
+.custom-pagination .pagination a:hover
+{
+    background-color: gray;
+    font-weight: bold;
+}
+
+/* Style des flèches de la pagination */
+.custom-pagination .pagination .first a,
+.custom-pagination .pagination .previous a,
+.custom-pagination .pagination .next a,
+.custom-pagination .pagination .last a {
+    font-weight: bold;
+    font-size: 20px;
+}
+@media(max-width: 856px) {
+    .custom-pagination{
+        width: 60%
+    }
+}

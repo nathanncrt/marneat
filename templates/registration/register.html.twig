@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - Marn'Eat{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/register.css') }}" rel="stylesheet"/>
+
+{% endblock %}
+
+{% block body %}
+    <div class="form__container">
+        <div class="form__register">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h1 class="form__register-title">S'inscrire</h1>
+                    {{ form_errors(registrationForm) }}
+                    {{ form_start(registrationForm, {'attr': {'class': 'form'}}) }}
+                    <div class="form-group">
+                        <div class="form__register-obligatory">
+                            <h1>Obligatoire</h1>
+                            {{ form_row(registrationForm.pnomPers, {'label': 'Prénom', 'attr': {'class': 'form-control', 'placeholder': 'Votre prénom'}}) }}
+                            {{ form_row(registrationForm.nomPers, {'label': 'Nom de famille', 'attr': {'class': 'form-control', 'placeholder': 'Votre nom de famille'}}) }}
+                            {{ form_row(registrationForm.dateNais, {'label': 'Date de naissance', 'attr': {'class': 'form-control'}}) }}
+                            {{ form_row(registrationForm.emailPers, {'label': 'Adresse mail', 'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                            {{ form_row(registrationForm.username, {'label': 'Pseudo', 'attr': {'class': 'form-control', 'placeholder': 'Votre pseudo'}}) }}
+                            {{ form_row(registrationForm.plainPassword, {'label': 'Mot de passe', 'attr': {'class': 'form-control', 'placeholder': 'Votre mot de passe'}}) }}
+                        </div>
+                        <div class="form__register-notrequired">
+                            <h1>Non Obligatoire</h1>
+                            {{ form_row(registrationForm.telPers, {'label': 'N° Téléphone', 'attr': {'class': 'form-control', 'placeholder': 'Téléphone'}}) }}
+                            {{ form_row(registrationForm.adrPers, {'label': 'Adresse', 'attr': {'class': 'form-control', 'placeholder': 'Adresse'}}) }}
+                            {{ form_row(registrationForm.cpPers, {'label': 'Code Postal', 'attr': {'class': 'form-control', 'placeholder': 'Code Postal'}}) }}
+                            {{ form_row(registrationForm.villePers, {'label': 'Ville', 'attr': {'class': 'form-control', 'placeholder': 'Ville'}}) }}
+                            {{ form_row(registrationForm.avatar, {'label': 'Avatar', 'attr': {'class': 'form-control', 'placeholder': 'URL de l\'avatar'}}) }}
+                        </div>
+                        {{ form_row(registrationForm.agreeTerms, {'label': "Accepter les conditions générale d'utilisation", 'attr': {'class': 'form-check-input'}}) }}
+                    </div>
+                    <div class="form__register-button">
+                        <button type="submit" class="register__submit">Je m'inscris</button>
+                    </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

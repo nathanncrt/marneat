@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{ user.username }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="profil__container">
+        <div class="arrow-backProfil" title="Retour à la page d'accueil">
+            <a href="{{ path('app_home') }}"><i class="fa-light fa-circle-arrow-left"></i></a>
+        </div>
+        <div class="avatar-container">
+            {% if user.avatar is not null %}
+                <img src="data:image/png;base64, {{ image(user.avatar) }}" alt="Avatar de l'utilisateur {{ user.username }}" class="profil-avatar">
+            {% else %}
+                <img src="{{ asset('img/default-picture.png') }}" alt="Avatar par défaut d'un utilisateur sur Marn'Eat" class="profil-avatar">
+            {% endif %}
+            <a href="{{ path('app_profile_update_avatar', {id: user.id}) }}" class="edit-icon">
+                <i class="fa-light fa-pen"></i>
+            </a>
+        </div>
+        <h1>Profil de {{ user.username }}</h1>
+
+        <div class="offcanvas-body">
+            <div>
+                <a href="{{ path('app_profile_coupdecoeur', {id: user.id}) }}"><button type="button" class="btn btn-outline-success w-100 p-3"> Mes Coups de Coeur</button></a>
+                <a href="{{ path('app_profile_update', {id: user.id}) }}"><button type="button" class="btn btn-outline-warning w-100 p-3">Mes informations personnelles </button></a>
+                <a href="{{ path('app_profile_stock', {id: user.id}) }}"><button type="button" class="btn btn-outline-info w-100 p-3">Mon Frigo</button></a>
+                <a href="{{ path('app_profile_createrecette', {id: user.id}) }}"><button type="button" class="btn btn-outline-dark w-100 p-3">Créer une recette</button></a>
+                <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-outline-danger w-100 p-3">Déconnexion</button></a>
+            </div>
+        </div>
+        <a href="{{ path('app_profile_delete_account', {id: user.id}) }}" class="profil__delete"> Me désinscrire</a>
+
+    </div>
+{% endblock %}

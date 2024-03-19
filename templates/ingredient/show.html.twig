@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Page de l'ingrédient : {{ ingredient.nomIng }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/ingredient-page.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="block">
+        <h1 class="ingredient__headTitle"><i class="fa-light fa-circle-info"></i> Information sur l'ingrédient</h1>
+        <div class="ingredient__head">
+            {# capitalize sert à passer la première lettre de l'ingrédient en majuscule #}
+            <h1> {{ ingredient.nomIng |capitalize }}</h1>
+            {% if ingredient.imgIng is not null %}
+                <img src="data:image/png;base64, {{ image(ingredient.imgIng) }}" alt="Image de l'ingredient {{ ingredient.nomIng }}" class="ingredient-image">
+            {% else %}
+                <img src="{{ asset('img/default-ingredient.png') }}" alt="Image par défaut d'un ingrédient sur Marn'Eat" class="ingredient-image">
+            {% endif %}
+            <p class="ingredient__family">
+                Je fais partie de la sous-famille
+                <span class="ingredient__family-important">{{ sousType.libSousFamImg|capitalize }}</span>
+                appartenant elle-même à la grande famille
+                <span class="ingredient__family-important">{{ type.libFamIng|capitalize }}</span>.
+            </p>
+        </div>
+    </div>
+
+    <div class="block">
+        <h1 class="ingredient__headTitle"><i class="fa-light fa-books-medical"></i> Mon allergène</h1>
+        {% if ingredient.allergene is not null %}
+            <div class="allergen-info">
+                <p><strong>Nom :</strong> {{ allergene.libAll }}</p>
+                <p><strong>Voici ma description :</strong> {{ allergene.descAll }}</p>
+            </div>
+        {% else %}
+            <p>Ne vous inquiétez pas ! Je ne possède aucun allergène <i class="fa-light fa-face-smile"></i></p>
+        {% endif %}
+    </div>
+
+    <div class="block">
+        <h1 class="ingredient__headTitle"><i class="fa-thin fa-magnifying-glass"></i> Où peut-on me retrouver ?</h1>
+        {% if recettes is empty %}
+            <p>Je n'ai pas encore été utilisé(e) dans une seule recette <i class="fa-light fa-face-sad-tear"></i></p>
+        {% else %}
+            <div class="ingredient__recipes">
+                {% for r in recettes %}
+                    <div class="ingredient__recipe-card">
+                        <a href="{{ path('app_recipe_show', {id : r.id}) }}">
+                            <div class="ingredient__recipe-image">
+                                {% if r.affiche is not null %}
+                                    <img src="data:image/png;base64, {{ image(r.affiche) }}" alt="Image de la recette {{ r.nomRecette }}">
+                                {% else %}
+                                    <img src="{{ asset('img/default-recipe.png') }}" alt="Image par défaut d'une recette sur Marn'Eat">
+                                {% endif %}
+                            </div>
+                            <p class="ingredient__recipe-name">{{ r.nomRecette }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

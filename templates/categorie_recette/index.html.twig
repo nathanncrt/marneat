@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des categories recettes !{% endblock %}
+
+{% block body %}
+    <h1>Liste des categories recettes</h1>
+    <ul>
+    {% for categorie in categories %}
+        <li><a href="{{ path('app_categorierecette_show', {id: categorie.id}) }}">{{ categorie.libCatRecette }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

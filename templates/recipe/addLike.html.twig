@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter aux Coups de coeur{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/recipe-form.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/recipe.js') }}"></script>
+{% endblock %}
+
+
+{% block body %}
+    <div class="block">
+        <div class="arrow-backProfil" title="Retour à la page profil">
+            <a href="{{ path('app_recipe_show', {id : recipe.id}) }}"><i class="fa-light fa-circle-arrow-left"></i></a>
+        </div>
+        <div class="recipe__addLike">
+            <h1 class="recipe__addLike-title"> Ajouter {{ recipe.nomRecette }} à vos Coups de cœur ? </h1>
+            <div class="recipe__addLike-buttons">
+                {{ form_start(form) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

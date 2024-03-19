@@ -1,0 +1,126 @@
+/* Style de la page stock d'un utilisateur */
+
+.stock__container-fridge {
+    background: #E3E3E3;
+    margin: 30px auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 60%;
+}
+
+.stock__container-fridge {
+    margin-bottom: 10px;
+}
+
+.stock__container-fridge a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 24px;
+}
+
+.arrow-backProfil{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.arrow-backProfil a i{
+    font-size: 40px;
+    border-radius: 50%;
+}
+
+.arrow-backProfil a i:hover{
+background-color: #FFD700
+}
+
+
+.stock-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.stock-add i {
+    font-size: 40px;
+    border-radius: 50%;
+}
+
+.stock-add p:hover {
+    text-decoration: underline #FFD700;
+    font-weight: bold;
+    transition: ease-in-out ;
+}
+
+.stock-add i:hover {
+    transform: scale(1.5);
+    background-color: #FFD700;
+    transition: ease-in-out 0.2S;
+}
+
+.stock__fridge {
+    width: 80%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border: solid black 3px;
+}
+
+.fridge-ingredient-card {
+    width: 25%;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    flex-shrink: 0;
+    position: relative;
+    height: 320px;
+}
+
+.fridge-ingredient-img {
+    max-width: 70%;
+    max-height: 50%;
+    margin-top: 10%;
+    object-fit: contain;
+    position: relative;
+    border-radius: 20px;
+}
+
+.fridge-ingredient-info {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.fridge-ingredient-info i{
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.fridge-ingredient-info .fa-trash:hover{
+    transform: scale(1.2);
+    color: red;
+    transition: ease;
+    font-weight: bold;
+}
+
+.fridge-ingredient-info .fa-pen:hover{
+    transform: scale(1.2);
+    color: blue;
+    transition: ease;
+    font-weight: bold;
+}

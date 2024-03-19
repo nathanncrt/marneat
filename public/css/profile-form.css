@@ -1,0 +1,55 @@
+/* Style des pages d'édition / suppression du d'un utilisateur */
+
+.block {
+    background: #E3E3E3;
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 70%;
+}
+
+.arrow-backProfil{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.arrow-backProfil a i{
+    color: black;
+    font-size: 40px;
+    border-radius: 50%;
+}
+
+.arrow-backProfil a i:hover{
+    background-color: #FFD700
+}
+
+/* Style de la page d'édition de l'avatar */
+
+.profil-avatar__update h1{
+    text-align: center;
+}
+.profil-avatar__update label {
+    margin-top: 20px;
+}
+
+.profil-avatar__update input{
+    width: 700px;
+}
+
+.btn-success{
+    width: 200px;
+}
+
+/* Style de la page d'édition des infos perso */
+.profil__update h1{
+    text-align: center;
+}
+
+.avatar{
+    display: none;
+}

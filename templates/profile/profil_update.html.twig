@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes informations{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/profile-form.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="block">
+        <div class="profil__update">
+            <div class="arrow-backProfil" title="Retour à la page profil">
+                <a href="{{ path('app_profile', {id : user.id}) }}"><i class="fa-light fa-circle-arrow-left"></i></a>
+            </div>
+        <h1>Mes infos perso</h1>
+        {{ form_start(form) }}
+            {{ form_row(form.username, {'label': 'Pseudonyme' ~ ' *', 'attr': {'required': 'required'}}) }}
+            {{ form_row(form.nomPers, {'label': 'Nom de famille' ~ ' *', 'attr': {'required': 'required'}}) }}
+            {{ form_row(form.pnomPers, {'label': 'Prénom' ~ ' *', 'attr': {'required': 'required'}}) }}
+            {{ form_row(form.dateNais, {'label': 'Date de naissance *'}) }}
+            {{ form_row(form.emailPers, {'label': 'Email' ~ ' *', 'attr': {'required': 'required'}}) }}
+            {{ form_row(form.telPers, {'label': 'Numéro de téléphone'}) }}
+            {{ form_row(form.adrPers, {'label': 'Adresse'}) }}
+            {{ form_row(form.villePers, {'label': 'Ville'}) }}
+            {{ form_row(form.cpPers, {'label': 'Code Postale'}) }}
+            <!-- L'input avatar est caché -->
+            <div class="avatar">{{ form_row(form.avatar, {'label': 'Avatar','attr': {'class': 'avatar'} }) }}</div>
+            {{ form_row(form.submit, { 'label': 'Modifier' ,'attr': {'class': 'btn btn-success w-100 p-3'}}) }}
+        {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+
+

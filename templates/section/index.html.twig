@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Marn'Eat : {{ section.libSec }}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/section.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
+{% endblock %}
+
+
+{% block body %}
+    <div class="section__header">
+        <a href="{{ path('app_home') }}">
+        <button class="mirror-icon">
+            <span class="material-icons">keyboard_return</span>
+        </button>
+        </a>
+        <h1>{{ section.libSec }}</h1>
+    </div>
+
+    <div class="section__recipe-list">
+    {% for recette in recipes %}
+        <div class="section__recipe">
+            <a href="{{ path('app_recipe_show',{id: recette.id}) }}">
+                {% if recette.affiche is not null %}
+                    <img src="data:image/png;base64, {{ image(recette.affiche) }}" alt="image_ingredient" class="image_recette" >
+                {% else %}
+                    <img src="{{ asset('img/default-recipe.png') }}" alt="Image de l'auteur de la recette" class="author-avatar">
+                {% endif %}
+                <h2>{{ recette.nomRecette }}</h2>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+
+    {# Condition si tous les items générés ne font qu'une page, on affiche pas la barre de navigation des n° de pages #}
+    {% if recipes.getTotalItemCount() > recipes.getItemNumberPerPage() %}
+        <div class="custom-pagination">
+            <p>{{ knp_pagination_render(recipes) }}</p>
+        </div>
+    {% endif %}
+{% endblock %}

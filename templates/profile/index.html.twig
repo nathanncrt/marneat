@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{ user.username }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Profil de {{ user.username }}</h1>
+
+        <button class="btn btn-primary show_option" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+            Show option
+        </button>
+
+        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="staticBackdropLabel">Option</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-outline-success w-100 p-3">Coup de Coeur</button></a>
+                    <br>
+                    <a href="{{ path('app_profile_update', {id: user.id}) }}"><button type="button" class="btn btn-outline-warning w-100 p-3">Modifier Profil</button></a>
+                    <br>
+                    <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-outline-danger w-100 p-3">Déconnexion</button></a>
+                    <br>
+                    <a href="{{ path('app_profile_stock', {id: user.id}) }}"><button type="button" class="btn btn-outline-info w-100 p-3">Voir mon stock</button></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ user.avatar ? 'data:image/png;base64,' ~ image(user.avatar) : asset('img/default-recipe.png') }}" alt="Image Utilisateur" class="img-fluid rounded-circle mb-3" style="height: 200px; width: 200px;">
+                <h2>Username : {{ user.username }}</h2>
+                <h2>Nom : {{ user.nomPers }}</h2>
+                <h2>Prénom : {{ user.pnomPers }}</h2>
+                <h2>Date naissance : {{ user.dateNais|date("m/d/Y") }}</h2>
+                <h2>Téléphone : {{ user.telPers ? user.telPers : 'Champ non renseigné'}}</h2>
+                <h2>Adresse : {{ user.adrPers ? user.adrPers : 'Champ non renseigné'}}</h2>
+                <h2>Ville : {{ user.villePers ? user.villePers : 'Champ non renseigné' }}</h2>
+                <h2>Code Postal : {{ user.cpPers ? user.cpPers : 'Champ non renseigné'}}</h2>
+
+            </div>
+
+            <div class="col-md-8">
+
+                <!-- Section "Ses Créations" -->
+                <h2>Mes Coups de Coeur</h2>
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {# Première diapositive - Active #}
+                        <div class="carousel-item active">
+                            <img src="{{ asset('img/default-recipe.png') }}" class="d-block w-100 carousel-image" alt="Image Recette">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Ses Creations</h5>
+                                <p>Défilez le carrousel pour voir ses recettes !</p>
+                            </div>
+                        </div>
+
+                        {# Boucle à travers les recettes pour les diapositives suivantes #}
+                        {% for recette in recettes %}
+                            <div class="carousel-item">
+                                {% set images = imagesRecettes[recette.getId()] %}
+                                {% if images is not empty %}
+                                    {% set firstImage = images[0] %}
+                                    <img src="{{ firstImage.jpeg ? 'data:image/png;base64,' ~ image(firstImage.jpeg) : asset('img/default-recipe.png') }}" class="d-block w-100 carousel-image" alt="Image Recette">
+                                {% else %}
+                                    <img src="{{ asset('img/default-recipe.png') }}" class="d-block w-100 carousel-image" alt="Image Recette">
+                                {% endif %}
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5><a href="{{ path('app_recipe_show', {id: recette.getId}) }}">{{ recette.nomRecette }}</a></h5>
+                                    <p>Recette</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Contrôles du carrousel - Précédent et Suivant -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+{% endblock %}

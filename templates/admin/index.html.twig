@@ -1,0 +1,14 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}
+    <h1 style="text-align: center">Bienvenue sur le BackOffice de Marn'Eat {{ user | capitalize}} </h1>
+
+    <h3 style="margin-top: 100px">Accès rapide</h3>
+    <ul>
+        <li><p><a href="{{ path('app_home') }}">Page d'accueil de l'application</a></p></li>
+        <li><p><a href="{{ path('app_profile', {id: user.id}) }}">Votre Profil</a></p></li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+{% endblock %}
